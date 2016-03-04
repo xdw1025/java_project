@@ -46,14 +46,57 @@ public class Leetcode_Solution {
 	        //1^2 + 9^2 = 82
 	        		//8^2 + 2^2 = 68
 	        		//6^2 + 8^2 = 100
-	        		//1^2 + 0^2 + 0^2 = 1 结果为1   要不会进入一个数重复的循环
+	        		//1^2 + 0^2 + 0^2 = 1 结果为1即为happyNumber   要不会进入一个数 c重复的循环
 	    }
+	 
+	  public int hammingWeight(int n) {
+	         int res = 0;
+	    while(n!=0)
+	    {
+	        n &= n - 1;
+	        ++ res;
+	    }
+	    return res;
+	    //For example, the 32-bit integer ’11' has binary representation 00000000000000000000000000001011, so the function should return 3.
+	    }
+	  
+	  public class Solution {
+		    public boolean isPowerOfTwo(int n) {
+		            return n > 0 && ((n & (n - 1)) == 0 );
+		    }
+		    //判断是不是2的次方，如1 2 4 8 16，这里将n看做二进制。
+		}
+	  
+	  public static int myAtoi(String str){
+		  
+		  str=str.trim();
+		 if(str==null||str.length()<1)
+			 return 0;
+		 char flag='+';
+		 int i=0;
+		 if(str.charAt(0)=='-'){
+			 flag='-';
+			 i++;
+		 }else if(str.charAt(0)=='+'){
+			 i++;
+		 } 
+		 double res=0;
+		 while(str.length()>i&&str.charAt(i)>='0'&&str.charAt(i)<='9'){
+			 res=res*10+(str.charAt(i)-'0');//这一块 看看是怎么得出结果的
+			 i++;
+		}
+		 
+		 if(flag=='-') res=-res;
+		 if(res>Integer.MAX_VALUE) return Integer.MAX_VALUE;
+		 if (res < Integer.MIN_VALUE)  return Integer.MIN_VALUE;
+		   
+		    return (int)res;
+	  }
 
 	public static void main (String[] args) {
-		int n=87;
-		boolean x;
-		x=isHappy(n);
-		System.out.println(x);
+		 Scanner scanner = new Scanner(System.in);
+		 String str=scanner.next();
+		System.out.println(myAtoi(str));
 		
 	}
 }
