@@ -57,7 +57,8 @@ public class Leetcode_Solution {
 	        ++ res;
 	    }
 	    return res;
-	    //For example, the 32-bit integer ’11' has binary representation 00000000000000000000000000001011, so the function should return 3.
+	    //For example, the 32-bit integer ’11' has binary representation 00000000000000000000000000001011, 
+	    //so the function should return 3.
 	    }
 	  
 	  public class Solution {
@@ -92,11 +93,57 @@ public class Leetcode_Solution {
 		   
 		    return (int)res;
 	  }
-
+	  public boolean isUgly(int num) {
+	        if(num<=0) return false;
+	        if(num==1) return true;
+	        while(num>=2&&num%2==0) {num=num/2;}
+	        while(num>=3&&num%3==0) {num=num/3;}
+	        while(num>=5&&num%5==0) {num=num/5;}
+	        return(num==1);
+	    }//判断一个数是否是ugly number 
+	  //Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. 
+	  //For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
+	  public static int countPrimes(int n){
+		  boolean[] biaoji = new boolean[n];
+		  if (n <= 2)
+				return 0;
+			for (int i = 2; i < n; i++)
+				biaoji[i] = true;
+		 
+			for (int i = 2; i <= Math.sqrt(n - 1); i++) {
+				if (biaoji[i]) {
+					for (int j = i * i; j < n; j += i)
+						biaoji[j] = false;
+				}
+			}
+		 
+			int count = 0;
+			for (int i = 2; i < n; i++) {
+				if (biaoji[i])
+					count++;
+			}
+		 
+			return count;
+	  }
+	  
+	  public static boolean is_prime(int n)
+	  {
+		    if(n<2)
+		        return false;
+		    for (int i=2;i*i<=n;i++)
+		    {
+		        if(n % i == 0)
+		            return false;
+		    }
+		    return true;
+		}
 	public static void main (String[] args) {
-		 Scanner scanner = new Scanner(System.in);
-		 String str=scanner.next();
-		System.out.println(myAtoi(str));
+		int n=120;
+		int res=0;
+		for(int i=2;i<n;i++){
+			if((is_prime(i))) res++;
+		}
+		System.out.println(res);
 		
 	}
 }
