@@ -93,7 +93,7 @@ public class Leetcode_Solution {
 		   
 		    return (int)res;
 	  }
-	  public boolean isUgly(int num) {
+	  public static boolean isUgly(int num) {
 	        if(num<=0) return false;
 	        if(num==1) return true;
 	        while(num>=2&&num%2==0) {num=num/2;}
@@ -124,26 +124,122 @@ public class Leetcode_Solution {
 			}
 		 
 			return count;
-	  }
+	  } //计数小于n的素数的个数
 	  
-	  public static boolean is_prime(int n)
-	  {
-		    if(n<2)
-		        return false;
-		    for (int i=2;i*i<=n;i++)
-		    {
-		        if(n % i == 0)
-		            return false;
+	 public static int nthUglyNumber(int n) {
+		 if(n<=0) return 0;
+		 int i2=0, i3=0, i5=0;
+		    int[] k = new int[n];
+		    k[0] = 1;
+		    for (int i=1; i<n; i++) {
+		        k[i] = Math.min(k[i2]*2, Math.min(k[i3]*3, k[i5]*5));
+		        if (k[i]%2 == 0) i2++;
+		        if (k[i]%3 == 0) i3++;
+		        if (k[i]%5 == 0) i5++;
 		    }
-		    return true;
-		}
-	public static void main (String[] args) {
-		int n=120;
-		int res=0;
-		for(int i=2;i<n;i++){
-			if((is_prime(i))) res++;
-		}
-		System.out.println(res);
+
+		    return k[n-1];
+	    }//找出第n个uglyNumber
+	 
+	 public static int nthSuperUglyNumber(int n, int[] primes) {
+	        if(n<=0) return 0;
+	        int len = primes.length;
+	        int[] index = new int[len]; 
+	        int[] res = new int[n];
+	        res[0] = 1;
+	        for(int i=1; i<n; i++) {
+	            int min = Integer.MAX_VALUE;
+	            for(int j=0; j<len; j++){
+	                min = Math.min(res[index[j]]*primes[j], min);
+	            }
+	            res[i] = min;
+	            for (int j=0; j<len; j++) {
+	                if(res[i]%primes[j]==0) index[j]++;
+	            }
+
+	        }
+
+	        return res[n-1];
+	    }//super uglyNumber,给定一个数组primes,里面是因数
+	 public static String reverseWords(String s){
+		 String[] parts = s.trim().split("\\s+");
+		 String out = "";
+		 if (parts.length > 0) {
+		     for (int i = parts.length - 1; i > 0; i--) {
+		         out += parts[i] + " ";
+		     }
+		     out += parts[0];
+		 }
+		 return out;
+	 }//反转字符串 但里面的字符顺序不变
+	 
+	 public static int reverse(int x){
+		 long result =0;
+	        while(x != 0)
+	        {
+	            result = (result*10) + (x%10);
+	            if(result > Integer.MAX_VALUE) return 0;
+	            if(result < Integer.MIN_VALUE) return 0;
+	            x = x/10;
+	        }
+	        return (int)result;
+	 } //反转数字 如123则输出321
+	 
+	 public int climbStairs(int n){
+		 if(n==0||n==1||n==2)return n;
+		 int[] res=new int[n];
+		 res[0]=1;
+		 res[1]=2;
+		 for(int i=2;i<n;i++){
+			 res[i]=res[i-1]+res[i-2];
+		 }
+		 return res[n-1];
+	 } //爬楼问题 每次可以爬1步或2步 n层楼多少爬法 实为斐波那契数列
+	 
+	  public static int removeElement(int[] A, int elem) {
+		  int start = 0;
+		  int n=A.length;
+		          for(int i = 0; i < n; i++)
+		               if (elem != A[i])
+		              {
+		                  A[start++] = A[i];
+		              }
+		             
+		         return start;
+	    }//将一个数组中指定的元素移除
+	  
+	  public static boolean isIsomorphic(String s, String t) {  
+	       int[] m1=new int[256];
+	       int[] m2=new int[256];
+	       int n=s.length();
+	       for(int i=0;i<n;i++){
+	    	   if(m1[s.charAt(i)]!=m2[t.charAt(i)]) return false;
+	    	   m1[s.charAt(i)]=i+1;
+	    	   m2[t.charAt(i)]=i+1;
+	       }
+	       return true;
+	    }  //同构字符串问题
+	  public static boolean isIsomorphic2(String s, String t) {  
+	       char[] cmp=new char[256];
+	       boolean[] flag=new boolean[256];
+	       if (s.length() != t.length())
+				return false;
+			for (int i = 0; i < s.length(); i++)
+			{
+				if (!(cmp[s.charAt(i)])&&(flag[t.charAt(i)]==false))
+				{
+					cmp[s.charAt(i)] = t.charAt(i);
+					flag[t.charAt(i)] = true;
+				}
+				
+				else if (cmp[s.charAt(i)] != t.charAt(i))
+					return false;
+			}
+			return true;
+	  }
 		
+	public static void main (String[] args) {
+		
+		isIsomorphic("pdfgr","title");
 	}
 }
