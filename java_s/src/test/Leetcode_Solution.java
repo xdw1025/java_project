@@ -1,13 +1,30 @@
 package test;
+import java.lang.reflect.Array;
+import java.nio.file.attribute.DosFileAttributes;
 import java.util.*;
+
+import javax.print.attribute.standard.RequestingUserName;
 public class Leetcode_Solution {
+	
+	public static void input(){
+		 Scanner input = new Scanner(System.in);
+		  
+		  while (input.hasNext()) {
+		   int n = input.nextInt();
+		   int ability = input.nextInt();
+		   int[] monsters = new int[n];
+		   for (int i = 0; i < n; i++) {
+		    monsters[i] = input.nextInt();
+		   }
+	}
+	}
 	public static boolean containDuplicate(int[] nums){
 		HashSet<Integer> numbers=new HashSet<Integer>();
 		for(int i:nums){
 			if(!numbers.add(i)){return true;}
 		}
 		return false;
-		//ÅĞ¶ÏÒ»¸öÊı×éÀïÊÇ·ñÓĞÖØ¸´µÄÊı
+		//åˆ¤æ–­ä¸€ä¸ªæ•°ç»„é‡Œæ˜¯å¦æœ‰é‡å¤çš„æ•°
 	}
 	
 	
@@ -16,7 +33,7 @@ public class Leetcode_Solution {
 		for (int i = 0; i < s.length(); i++) 
 		{ result = result * 26 + (s.charAt(i) - 'A' + 1); } 
 		return result;
-		//½«Ò»¸ö26½øÖÆµÄÊı×ª»»ÎªÊ®½øÖÆµÄÊı£¬A->1 B->2...Z->26 AA->27 AB->28
+		//å°†ä¸€ä¸ª26è¿›åˆ¶çš„æ•°è½¬æ¢ä¸ºåè¿›åˆ¶çš„æ•°ï¼ŒA->1 B->2...Z->26 AA->27 AB->28
        
     }
 
@@ -24,7 +41,7 @@ public class Leetcode_Solution {
 		int n=nums.length;
 		Arrays.sort(nums);
 		return nums[n/2];
-    //Êä³öÒ»¸öÊı×éÖĞ³öÏÖ´ÎÊı³¬¹ıÒ»°ëµÄÊı
+    //è¾“å‡ºä¸€ä¸ªæ•°ç»„ä¸­å‡ºç°æ¬¡æ•°è¶…è¿‡ä¸€åŠçš„æ•°
 	}
 	
 	 public static boolean isHappy(int n) {
@@ -42,11 +59,11 @@ public class Leetcode_Solution {
 	            n = total;
 	        }
 	        return true;
-	        //ÅĞ¶ÏÒ»¸öÊıÊÇ²»ÊÇhappyNumber ex 19 is a happy number
+	        //åˆ¤æ–­ä¸€ä¸ªæ•°æ˜¯ä¸æ˜¯happyNumber ex 19 is a happy number
 	        //1^2 + 9^2 = 82
 	        		//8^2 + 2^2 = 68
 	        		//6^2 + 8^2 = 100
-	        		//1^2 + 0^2 + 0^2 = 1 ½á¹ûÎª1¼´ÎªhappyNumber   Òª²»»á½øÈëÒ»¸öÊı cÖØ¸´µÄÑ­»·
+	        		//1^2 + 0^2 + 0^2 = 1 ç»“æœä¸º1å³ä¸ºhappyNumber   è¦ä¸ä¼šè¿›å…¥ä¸€ä¸ªæ•° cé‡å¤çš„å¾ªç¯
 	    }
 	 
 	  public int hammingWeight(int n) {
@@ -57,7 +74,7 @@ public class Leetcode_Solution {
 	        ++ res;
 	    }
 	    return res;
-	    //For example, the 32-bit integer ¡¯11' has binary representation 00000000000000000000000000001011, 
+	    //For example, the 32-bit integer â€™11' has binary representation 00000000000000000000000000001011, 
 	    //so the function should return 3.
 	    }
 	  
@@ -65,7 +82,7 @@ public class Leetcode_Solution {
 		    public boolean isPowerOfTwo(int n) {
 		            return n > 0 && ((n & (n - 1)) == 0 );
 		    }
-		    //ÅĞ¶ÏÊÇ²»ÊÇ2µÄ´Î·½£¬Èç1 2 4 8 16£¬ÕâÀï½«n¿´×ö¶ş½øÖÆ¡£
+		    //åˆ¤æ–­æ˜¯ä¸æ˜¯2çš„æ¬¡æ–¹ï¼Œå¦‚1 2 4 8 16ï¼Œè¿™é‡Œå°†nçœ‹åšäºŒè¿›åˆ¶ã€‚
 		}
 	  
 	  public static int myAtoi(String str){
@@ -83,7 +100,7 @@ public class Leetcode_Solution {
 		 } 
 		 double res=0;
 		 while(str.length()>i&&str.charAt(i)>='0'&&str.charAt(i)<='9'){
-			 res=res*10+(str.charAt(i)-'0');//ÕâÒ»¿é ¿´¿´ÊÇÔõÃ´µÃ³ö½á¹ûµÄ
+			 res=res*10+(str.charAt(i)-'0');//è¿™ä¸€å— çœ‹çœ‹æ˜¯æ€ä¹ˆå¾—å‡ºç»“æœçš„
 			 i++;
 		}
 		 
@@ -100,7 +117,7 @@ public class Leetcode_Solution {
 	        while(num>=3&&num%3==0) {num=num/3;}
 	        while(num>=5&&num%5==0) {num=num/5;}
 	        return(num==1);
-	    }//ÅĞ¶ÏÒ»¸öÊıÊÇ·ñÊÇugly number 
+	    }//åˆ¤æ–­ä¸€ä¸ªæ•°æ˜¯å¦æ˜¯ugly number 
 	  //Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. 
 	  //For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
 	  public static int countPrimes(int n){
@@ -124,7 +141,7 @@ public class Leetcode_Solution {
 			}
 		 
 			return count;
-	  } //¼ÆÊıĞ¡ÓÚnµÄËØÊıµÄ¸öÊı
+	  } //è®¡æ•°å°äºnçš„ç´ æ•°çš„ä¸ªæ•°
 	  
 	 public static int nthUglyNumber(int n) {
 		 if(n<=0) return 0;
@@ -139,7 +156,7 @@ public class Leetcode_Solution {
 		    }
 
 		    return k[n-1];
-	    }//ÕÒ³öµÚn¸öuglyNumber
+	    }//æ‰¾å‡ºç¬¬nä¸ªuglyNumber
 	 
 	 public static int nthSuperUglyNumber(int n, int[] primes) {
 	        if(n<=0) return 0;
@@ -160,7 +177,7 @@ public class Leetcode_Solution {
 	        }
 
 	        return res[n-1];
-	    }//super uglyNumber,¸ø¶¨Ò»¸öÊı×éprimes,ÀïÃæÊÇÒòÊı
+	    }//super uglyNumber,ç»™å®šä¸€ä¸ªæ•°ç»„primes,é‡Œé¢æ˜¯å› æ•°
 	 public static String reverseWords(String s){
 		 String[] parts = s.trim().split("\\s+");
 		 String out = "";
@@ -171,7 +188,7 @@ public class Leetcode_Solution {
 		     out += parts[0];
 		 }
 		 return out;
-	 }//·´×ª×Ö·û´® µ«ÀïÃæµÄ×Ö·ûË³Ğò²»±ä
+	 }//åè½¬å­—ç¬¦ä¸² ä½†é‡Œé¢çš„å­—ç¬¦é¡ºåºä¸å˜
 	 
 	 public static int reverse(int x){
 		 long result =0;
@@ -183,7 +200,7 @@ public class Leetcode_Solution {
 	            x = x/10;
 	        }
 	        return (int)result;
-	 } //·´×ªÊı×Ö Èç123ÔòÊä³ö321
+	 } //åè½¬æ•°å­— å¦‚123åˆ™è¾“å‡º321
 	 
 	 public int climbStairs(int n){
 		 if(n==0||n==1||n==2)return n;
@@ -194,7 +211,7 @@ public class Leetcode_Solution {
 			 res[i]=res[i-1]+res[i-2];
 		 }
 		 return res[n-1];
-	 } //ÅÀÂ¥ÎÊÌâ Ã¿´Î¿ÉÒÔÅÀ1²½»ò2²½ n²ãÂ¥¶àÉÙÅÀ·¨ ÊµÎªì³²¨ÄÇÆõÊıÁĞ
+	 } //çˆ¬æ¥¼é—®é¢˜ æ¯æ¬¡å¯ä»¥çˆ¬1æ­¥æˆ–2æ­¥ nå±‚æ¥¼å¤šå°‘çˆ¬æ³• å®ä¸ºæ–æ³¢é‚£å¥‘æ•°åˆ—
 	 
 	  public static int removeElement(int[] A, int elem) {
 		  int start = 0;
@@ -206,7 +223,7 @@ public class Leetcode_Solution {
 		              }
 		             
 		         return start;
-	    }//½«Ò»¸öÊı×éÖĞÖ¸¶¨µÄÔªËØÒÆ³ı
+	    }//å°†ä¸€ä¸ªæ•°ç»„ä¸­æŒ‡å®šçš„å…ƒç´ ç§»é™¤
 	  
 	  public static boolean isIsomorphic(String s, String t) {  
 	       int[] m1=new int[256];
@@ -218,7 +235,7 @@ public class Leetcode_Solution {
 	    	   m2[t.charAt(i)]=i+1;
 	       }
 	       return true;
-	    }  //Í¬¹¹×Ö·û´®ÎÊÌâ
+	    }  //åŒæ„å­—ç¬¦ä¸²é—®é¢˜
 	  public static boolean isIsomorphic2(String s, String t) {  
 	       char[] cmp=new char[256];
 	       boolean[] flag=new boolean[256];
@@ -226,7 +243,7 @@ public class Leetcode_Solution {
 				return false;
 			for (int i = 0; i < s.length(); i++)
 			{
-				if (!(cmp[s.charAt(i)])&&(flag[t.charAt(i)]==false))
+				if ((cmp[s.charAt(i)]==0)&&(flag[t.charAt(i)]==false))
 				{
 					cmp[s.charAt(i)] = t.charAt(i);
 					flag[t.charAt(i)] = true;
@@ -236,10 +253,417 @@ public class Leetcode_Solution {
 					return false;
 			}
 			return true;
-	  }
+	  }//åŒæ„å­—ç¬¦ä¸² 
+	  
+		public static int rob(int[] num){
+			  if (num.length == 0) return 0;
+		        
+		        int[] money = new int[num.length + 1];
+		        money[0] = 0;
+		        money[1] = num[0];
+		        
+		        for (int i = 2; i <= num.length; i++) {
+		        	money[i] = Math.max(money[i - 1], money[i - 2] + num[i - 1]);
+		        }
+		        
+		        return money[num.length];
+		}//198æŠ¢åŠ«é—®é¢˜ å®è´¨æ˜¯è®¡ç®—ä¸€ä¸ªæ•°ç»„ä¸ç›¸é‚»çš„æ•°åŠ èµ·æ¥çš„æœ€å¤§å€¼
 		
-	public static void main (String[] args) {
+		public static int compareVersion(String version1, String version2) {  
+	        if(version1 == null || version2 ==null) return 0;  
+	          
+	        String[] v1 = version1.split("\\.");  
+	        String[] v2 = version2.split("\\.");  
+	          
+	        int n1 = v1.length;  
+	        int n2 = v2.length;  
+	          
+	        int i=0;  
+	          
+	        while(i<n1 || i<n2) {  
+	            int x1 = i<n1 ? Integer.parseInt(v1[i]) : 0;  
+	            int x2 = i<n2 ? Integer.parseInt(v2[i]) : 0;  
+	            if(x1 > x2) return 1;  
+	            else if(x1 < x2) return -1;  
+	            else ++i;
+	        }  
+	          
+	        return 0;
+	     }//165æ¯”è¾ƒç‰ˆæœ¬å·å¤§å° æ¯”å¦‚1.2<1.3 12.3.4>2.5ä¹‹ç±»
 		
-		isIsomorphic("pdfgr","title");
-	}
-}
+		 public int firstBadVersion(int n) {
+	         int start = 1, end = n;
+	    while (start < end) {
+	        int mid = start + (end-start) / 2;
+	        if (!isBadVersion(mid)) start = mid + 1;
+	        else end = mid;               
+	    }        
+	    return start;
+	        }//äºŒåˆ†æŸ¥æ‰¾
+		 public boolean isBadVersion(int n){
+			 return true;
+		 }
+		 
+		 public static int maxSubArray(int[] nums) {
+		        int sum=0,max=nums[0];
+		        for(int i=0;i<nums.length;i++){
+		            if(sum>=0) sum+=nums[i];
+		            else sum=nums[i];
+		            if (sum>max) max=sum;
+		        }
+		        return max;
+		    }//53æ±‚è¿ç»­å­æ•°ç»„çš„æœ€å¤§å’Œï¼›For example, given the array [âˆ’2,1,âˆ’3,4,âˆ’1,2,1,âˆ’5,4],
+		// the contiguous subarray [4,âˆ’1,2,1] 
+		  public static boolean isPalindrome(int x) {
+		       int res=0;
+		            while(x!=0){
+		                res=res*10+x%10;
+		                x=x/10;
+		            }
+		            if(res==x) return true;
+		            else return false;
+		        }
+		  public static String reverse3(String s) {
+			  char[] array = s.toCharArray();
+			  String reverse = "";
+			  for (int i = array.length - 1; i >= 0; i--)
+			   reverse += array[i];
+			  
+			  return reverse;
+			 }
+		  public static int reverseBits(int n) {
+		        String a=Integer.toBinaryString(n);
+		        String x=reverse3(a);
+		        
+		        	int b=Integer.parseInt(x, 2);
+		        
+		 return b;
+		    }
+		  public class TreeNode {
+			       int val;
+			       TreeNode left;
+			       TreeNode right;
+			       TreeNode(int x) { val = x; }
+			   }
+		  
+		  public TreeNode invertTree(TreeNode root) {
+		      TreeNode temp;
+		       if(root==null) return null;
+		        if(root.left!=null||root.right!=null){
+		            temp=root.left;
+		            root.left=root.right;
+		            root.right=temp;
+		        }
+		        invertTree(root.left);
+		        invertTree(root.right);
+		        return root;
+		    }//åè½¬äºŒå‰æ ‘ 
+		  
+		  public TreeNode invertTree2(TreeNode root) {
+		        if(root == null) return null;
+		        TreeNode tmp = root.left;
+		        root.left = invertTree(root.right);
+		        root.right = invertTree(tmp);
+		        return root;
+		    }
+		  
+		  
+		  public boolean isSymmetric(TreeNode root) {
+			    return root==null || isSymmetricHelp(root.left, root.right);
+			}
+
+			private boolean isSymmetricHelp(TreeNode left, TreeNode right){
+			    if(left==null || right==null)
+			        return left==right;
+			    if(left.val!=right.val)
+			        return false;
+			    return isSymmetricHelp(left.left, right.right) && isSymmetricHelp(left.right, right.left);
+			}//åˆ¤æ–­ä¸€ä¸ªäºŒå‰æ ‘æ˜¯å¦æ˜¯è‡ªå·±çš„é•œåƒ
+		  
+			 public int sumNumbers(TreeNode root) {
+				    return sum(root, 0);
+				}
+
+				public int sum(TreeNode n, int s){
+				    if (n == null) return 0;
+				    if (n.right == null && n.left == null) return s*10 + n.val;
+				    return sum(n.left, s*10 + n.val) + sum(n.right, s*10 + n.val);
+				}// 129. Sum Root to Leaf Numbers
+				
+				  public static void rotate(int[] nums, int k) {
+				        k=k%nums.length;
+				        reversenum(nums,0,nums.length-1);
+				        reversenum(nums,0,k-1);
+				        reversenum(nums,k,nums.length-1);
+				      
+				    }
+				  
+				  public static void reversenum(int[] nums,int start,int end){
+					  while(start<end){
+						  ArrayList List=new ArrayList();
+						  List.size();
+						  int tmp=nums[start];
+						  nums[start]=nums[end];
+						  nums[end]=tmp;
+						  start++;
+						  end--;
+					  }
+				  }//189 ç¿»è½¬æ•°ç»„
+				  private Queue<Long> small = new PriorityQueue(),
+	                        large = new PriorityQueue();
+
+	    public void addNum(int num) {
+	        large.add((long) num);
+	        small.add(-large.poll());
+	        if (large.size() < small.size())
+	            large.add(-small.poll());
+	    }
+
+	    public double findMedian() {
+	        return large.size() > small.size()
+	               ? large.peek()
+	               : (large.peek() - small.peek()) / 2.0;
+	    }//295. Find Median from Data Stream
+	    
+	    public static void maxProduct(String[] words) {
+	        char[] chars=new char[100];
+	        int[] re=new int[100];
+	        for(int i = 0; i < words.length; i++){
+	            for(char c: words[i].toCharArray()){
+	               re[i] |= 1 << (c - 'a');
+	            }
+	        }
+	       
+	    }//éƒ¨åˆ† æœªå®Œæˆ
+	    
+	    
+	    
+	     public class ListNode {
+	    	     int val;
+	    	     ListNode next;
+	    	     ListNode(int x) { val = x; }
+	    	 }
+	        public ListNode removeNthFromEnd(ListNode head, int n) {
+
+	       ListNode start = new ListNode(0);
+	       ListNode slow = start, fast = start;
+	       slow.next = head;
+
+	       //Move fast in front so that the gap between slow and fast becomes n
+	       for(int i=1; i<=n+1; i++)   {
+	           fast = fast.next;
+	       }
+	       //Move fast to the end, maintaining the gap
+	       while(fast != null) {
+	           slow = slow.next;
+	           fast = fast.next;
+	       }
+	       //Skip the desired node
+	       slow.next = slow.next.next;
+	       return start.next;
+	   } //19 Remove Nth Node From End of List
+	        
+	        public String longestCommonPrefix(String[] strs) {
+	            int n=strs.length;
+	            if(n==0) return "";
+	            String prefix=strs[0];
+	            for(int i=0;i<n;i++){
+	                if(prefix.length()==0||strs[i].length()==0) return "";
+	                int len=prefix.length()<strs[i].length()?prefix.length():strs[i].length();
+	                int j=0;
+	                for(j=0;j<len;j++){
+	                    if(prefix.charAt(j)!=strs[i].charAt(j)) break;
+	                }
+	                prefix=prefix.substring(0,j);
+	            }
+	            return prefix;
+	        }//14. Longest Common Prefix å­—ç¬¦ä¸²æ•°ç»„ä¸­çš„æœ€é•¿å…¬å…±å‰ç¼€
+	        /*æ€è·¯æ˜¯è¿™æ ·çš„ï¼š
+	        2ä¸ªå­—ç¬¦ä¸²çš„æœ€é•¿å…¬å…±å‰ç¼€ï¼Œå…¶é•¿åº¦è‚¯å®šä¸ä¼šè¶…è¿‡æœ€çŸ­çš„å­—ç¬¦ä¸²çš„é•¿åº¦ï¼Œè®¾æœ€çŸ­çš„å­—ç¬¦ä¸²é•¿åº¦ä¸ºnï¼Œé‚£ä¹ˆåªè¦æ¯”è¾ƒè¿™2ä¸ªå­—ç¬¦ä¸²çš„å‰nä¸ªå­—ç¬¦å³å¯ã€‚
+	        å¦‚æ­¤å¾—å‡ºè¿™2ä¸ªå­—ç¬¦ä¸²çš„æœ€é•¿å…¬å…±å‰ç¼€prefixåï¼Œå†æ‹¿prefixä½œä¸ºæ–°çš„å­—ç¬¦ä¸²å’Œæ•°ç»„ä¸­çš„ä¸‹ä¸€ä¸ªå­—ç¬¦ä¸²æ¯”è¾ƒï¼Œæ–¹æ³•åŒä¸Šã€‚
+	        éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œå¦‚æœæ•°ç»„ä¸­çš„æŸä¸ªå­—ç¬¦ä¸²é•¿åº¦ä¸º0ï¼Œæˆ–è€…æ±‚å¾—çš„å½“å‰æœ€é•¿å…¬å…±å‰ç¼€çš„é•¿åº¦ä¸º0ï¼Œå°±ç›´æ¥è¿”å›ç©ºå­—ä¸²ã€‚*/
+	        
+	        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+	            int left = 0;
+	            ListNode dummy = new ListNode(0), tail = dummy;
+
+	            // iterate two list, add each position until 2 lists are finished && left equals to 0
+	            while(!(l1 == null && l2 == null && left == 0)){
+	                // is number1 finished?
+	                int add1 = l1 != null ? l1.val : 0;
+	                // is number2 finished?
+	                int add2 = l2 != null ? l2.val : 0;
+	                int sum = add1 + add2 + left;
+	                left = sum / 10;
+	                ListNode newNode = new ListNode(sum % 10);
+	                tail.next = newNode;
+	                tail = newNode;
+
+	                if(l1 != null) l1 = l1.next;
+	                if(l2 != null) l2 = l2.next;
+	            }
+
+	            return dummy.next;
+	        }//2 Add Two Numbers å°†2ä¸ªæ•°ç›¸åŠ ï¼Œè¿™2ä¸ªæ•°ä»¥é“¾è¡¨çš„å½¢å¼ç»™å‡º ä¸”é¡ºåºæ˜¯åå‘çš„ æ³¨æ„è¿›ä½
+	        
+	        public static int lengthOfLongestSubstring(String s) {
+	        	int n = s.length();  
+	        	  int i = 0, j = 0; 
+	        	  Set<Character> t=new HashSet<>();
+	        	  char[] arr=s.toCharArray();
+	        	  int maxLen = 0; 
+	        	  int count=0;
+	        	  while(j<n){
+	        		  if(t.add(arr[j])){j++;}
+	        		
+	        		  else {maxLen=j-i;i=i+maxLen;}
+	        	  }
+	        	  return maxLen;
+	            }
+	        
+	        public static int huawei(int[] num){
+	        	int n=num.length;
+	        	int res=0;
+	        	Arrays.sort(num);
+	        	if(num[0]>=60) res=60;
+	        	else if(num[4]%10==0){
+	        		res=num[4];
+	        	}
+	        	else{
+	        		res=num[4]-(num[4]%10);
+	        	}
+	        	
+	        	return res;
+	        }
+	        
+	        
+	        public static void huawei1(){
+	        	int n=0;
+	        	int res=0;
+	        	Scanner cin = new Scanner(System.in);
+	        	n=cin.nextInt();
+	        		for(int i=1;;i++){
+	        			if(i*i<=n) 
+	        			res++;
+	        			else break;
+	        		}
+	        		System.out.println(res);
+	        	
+	        }
+	        
+	       public static List<List<Integer>> subsets(int[] nums){
+	    	   List<List<Integer>> res=new ArrayList<>();
+	    	   if(nums==null||nums.length==0) return res;
+	    	   Arrays.sort(nums);
+	    	   res.add(new ArrayList<>());
+	    	   for(int n:nums){
+	    		   int tmplen=res.size();
+	    		   for(int i=0;i<tmplen;i++){
+	    			   List<Integer> clone=new ArrayList<>(res.get(i));
+	    			   clone.add(n); 
+	    			   res.add(clone);
+	    		   }
+	    	   }
+	    	   
+	    	   return res;
+	    	   }
+	       
+	       public static int countBitDiff(int m, int n) {
+	    	   int tmp=m^n;
+	    	   int count=0;
+	    	  while(tmp!=0){
+	    		   count=count+(tmp&1);
+	    		   tmp=tmp>>1;
+	    		   
+	    	   }
+	   			return count;
+	       }
+	       
+	       public static boolean isValid(String s) {
+	           Stack<Character> sk=new Stack<>();
+	           char c;
+	           for(int i=0;i<s.length();i++){
+	        	   if(s.charAt(i)=='('){
+	        		   sk.push('(');
+	        	   }
+	        	   if(s.charAt(i)==')'){
+	        		   if(!sk.isEmpty()&&sk.pop()=='(')
+	        			   continue;
+	        		   else return false;
+	        	   }
+	           
+	           if (s.charAt(i) == '[') {  
+	                sk.push('[');  
+	            }  
+	            if (s.charAt(i) == ']') {  
+	                if (!sk.isEmpty() && sk.pop() == '[')  
+	                    continue;  
+	                else  
+	                    return false;  
+	            }  
+	            if (s.charAt(i) == '{') {  
+	                sk.push('{');  
+	            }  
+	            if (s.charAt(i) == '}') {  
+	                if (!sk.isEmpty() && sk.pop() == '{')  
+	                    continue;  
+	                else  
+	                    return false;  
+	            }  
+	            
+	       }
+	           if (sk.isEmpty())  
+	                return true;  
+	            else  
+	                return false; 
+	       }//20 æ‹¬å·åŒ¹é…é—®é¢˜ 
+	       
+	       public static int[] sor(int[] a){
+	    	   for (int i = 0; i < a.length; i++) {
+	    		               for(int j = 0; j<a.length-i-1; j++){
+	    		            
+	    		                   if(a[j]<a[j+1]){
+	    		                      int temp = a[j];
+	    		                        a[j] = a[j+1];
+	    		                       a[j+1] = temp;
+	    		                   }
+	    		               }
+	    		          }
+	    	    return a;
+	    	}
+	       public static int hIndex(int[] citations) {
+	          citations=sor(citations);
+	           int min=0;
+	           int len=citations.length;
+	           if(len==0) return 0;
+	           int[] max=new int[len];
+	           for(int i=1;i<len+1;i++){
+	        	   min=Math.min(citations[i-1], i);
+	        	   max[i-1]=min;
+	           }
+	          max=sor(max);
+	           return max[0];
+	       }//274 H-Index   æ€æƒ³æ˜¯max[min[f(i),i]]
+	  
+	   
+	       	public static int getGCD(int a, int b) {
+	               int max = Math.max(a, b);
+	               int min = Math.min(a, b);
+	               if(min == 0)
+	               return max;
+	               return getGCD(min, max % min);
+	       	}//æœ€å¤§å…¬çº¦æ•°
+	       	
+	       	
+	           public static void main (String[] args) {
+	               
+	              
+	               
+	           }
+	           
+	          
+	        
+	       }
+
+
+
