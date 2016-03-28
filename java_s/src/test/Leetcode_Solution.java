@@ -655,10 +655,146 @@ public class Leetcode_Solution {
 	       	}//最大公约数
 	       	
 	       	
+	        public static int[] countBits(int num) {
+	            int len=num;
+	            int[] res=new int[len+1];
+	            for(int i=0;i<len+1;i++){
+	                int tmp=i;
+	                for(int j=0;j<32;j++){
+	                    if((tmp&1)==1) res[i]++;
+	                    tmp=tmp>>1;
+	                }
+	            }
+	            return res;
+	        }
+	       	
+	    public static int lengthOfLastWord(String s) {
+	        int res=0;
+	        String[] parts = s.trim().split("\\s+");
+	        int n=parts.length;
+	        res=parts[n-1].length();
+	        
+	        return res;
+	        
+	        }
+	    	/* For example, 
+	    		Given s = "Hello World",
+	    			return 5.*/
+	    
+	    
+	    public  static int searchInsert(int[] A, int target) {
+	        int low = 0, high = A.length-1;
+	        while(low<=high){
+	            int mid = (low+high)/2;
+	            if(A[mid] == target) return mid;
+	            else if(A[mid] > target) high = mid-1;
+	            else low = mid+1;
+	        }
+	        return low;
+	    }
+	        
+	    public double myPow(double x, int n) {
+	        if (n == 0) return 1.0;
+	    double half = myPow(x, n/2);
+	    if (n%2 == 0)
+	    {
+	        return half*half;
+	    }
+	    else if (n>0)
+	    {
+	        return half*half*x;
+	    }
+	    else
+	    {
+	        return half/x*half;
+	    }
+	        
+	    }//重新实现pow函数，有时间复杂度的要求
+	    
+	    public static List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> result=new ArrayList<>();
+            int n=nums.length;
+            int k=0;
+           Arrays.sort(nums);
+           for(int i=0;i<n;i++){
+               if(i!=0&&nums[i]==nums[i-1]) continue;
+               int p=i+1,q=n-1,sum=0;
+               while(p<q){
+                   sum=nums[i]+nums[p]+nums[q];
+                   if(sum==0){
+                       result.add(Arrays.asList(nums[i], nums[p], nums[q]));
+                   
+                    while (p < q && nums[p] == nums[p+1]) p++;
+                    while (p < q && nums[q] == nums[q-1]) q--;
+                    p++; q--;
+                   }
+                    else if(sum<0){p++;}
+                    else {q--;}
+               }
+           }
+           
+           return result;
+   
+}//15  3sum Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0?
+	   
+	    
+	    public static boolean containsNearbyDuplicate(int[] nums, int k) {
+	        Set<Integer> set = new HashSet<Integer>();
+	        for(int i = 0; i < nums.length; i++){
+	            if(i > k) set.remove(nums[i-k-1]);
+	            if(!set.add(nums[i])) return true;
+	        }
+	        return false;
+	 }
+	    
+	    
+	  
+	   
+	        public static String getHint(String secret, String guess) 
+	        {
+	            if (secret == null || secret.length() == 0)
+	            {
+	                return "0A0B";
+	            }
+
+	            int bull = 0;
+	            int total = 0;
+	            char[] sChar = secret.toCharArray();
+	            char[] gChar = guess.toCharArray();
+	            int[] flags = new int[10];
+
+	            for (char c : sChar)
+	            {
+	                flags[c - '0']++;
+	            }
+
+	            for (int i = 0; i < sChar.length; i++)
+	            {
+	                if (gChar[i] == sChar[i])
+	                {
+	                    bull++;
+	                }
+
+	                if (flags[gChar[i] - '0']-- > 0)
+	                {
+	                    total++;
+	                }
+	            }
+	            return bull + "A" + (total - bull) + "B";
+	        }
+	        //299. Bulls and Cows For example:Secret number:  "1807"
+	        // Friend's guess: "7810"
+	         //return 1A3B
+	    
 	           public static void main (String[] args) {
-	               
-	              
-	               
+	             Random sa=new Random();
+	              int s=sa.nextInt(338);
+	              int[] nums={1,2,4,5,6,7,8,8};
+	              String a1="1123";
+	              String a2="0111";
+	             
+	              String a3=getHint(a1,a2);
+	              System.out.println(a3);
 	           }
 	           
 	          
